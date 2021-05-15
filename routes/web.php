@@ -14,3 +14,32 @@
 Route::get('/', function () {
     return view('welcome');
 });
+// trang chu
+Route::get('/index',[
+    'as'=>'trang-chu',
+    'uses'=>'PageController@getIndex'
+]);
+
+//danh muc san pham
+Route::get('/category', [
+    'as'=>'category',
+    'uses'=>'PageController@getCategory'
+]);
+
+// chi tiet san pham
+Route::get('/product', [
+    'as'=>'product',
+    'uses'=>'PageController@getProduct'
+]);
+
+//lien he
+Route::get('/contact', [
+    'as'=>'contact',
+    'uses'=>'PageController@getContact'
+]);
+
+// gioi thieu
+Route::get('/about', [
+    'as'=>'about',
+    'uses'=>'PageController@getAbout'
+]);
