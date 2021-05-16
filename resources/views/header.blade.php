@@ -91,12 +91,10 @@
             <nav class="main-menu">
                 <ul class="l-inline ov">
                     <li><a href="{{route('home')}}">Trang chủ</a></li>
-                    <li><a href="{{route('category')}}">Sản phẩm</a>
+                    <li><a href="#">Sản phẩm</a>
                         <ul class="sub-menu">
                             @foreach($category as $item)
-                            <li><a href="product_type.html">{{$item['name']}}</a></li>
-{{--                            <li><a href="product_type.html">Sản phẩm 2</a></li>--}}
-{{--                            <li><a href="product_type.html">Sản phẩm 4</a></li>--}}
+                            <li><a href="{{route('category',$item['id'])}}">{{$item['name']}}</a></li>
                             @endforeach
                         </ul>
                     </li>

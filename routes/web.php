@@ -23,13 +23,13 @@ Route::get('/index',[
 ]);
 
 //danh muc san pham
-Route::get('/category', [
+Route::get('/category/{type}', [
     'as'=>'category',
     'uses'=>'PageController@getCategory'
 ]);
 
 // chi tiet san pham
-Route::get('/product', [
+Route::get('/product/{id}', [
     'as'=>'product',
     'uses'=>'PageController@getProduct'
 ]);
