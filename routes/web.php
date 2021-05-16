@@ -45,3 +45,9 @@ Route::get('/about', [
     'as'=>'about',
     'uses'=>'PageController@getAbout'
 ]);
+
+//them san pham vao gio hang
+Route::get('/add-to-cart/{id}', [
+    'as'=>'add-to-cart',
+    'uses'=>'PageController@getAddToCart'
+]);

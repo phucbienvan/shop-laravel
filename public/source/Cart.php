@@ -16,6 +16,7 @@ class Cart
 		}
 	}
 
+	//  them san pham
 	public function add($item, $id){
 		$giohang = ['qty'=>0, 'price' => $item->unit_price, 'item' => $item];
 		if($this->items){
