@@ -11,12 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/',[
+    'as'=>'home',
+    'uses'=>'PageController@getIndex'
+]);
+
 // trang chu
 Route::get('/index',[
-    'as'=>'trang-chu',
+    'as'=>'home',
     'uses'=>'PageController@getIndex'
 ]);
 
