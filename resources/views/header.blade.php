@@ -44,7 +44,7 @@
                                             <a class="pull-left" href="#"><img src="source/image/product/{{$product['item']['image']}}" alt=""></a>
                                             <div class="media-body">
                                                 <span class="cart-item-title">{{$product['item']['name']}}</span>
-                                                <span class="cart-item-amount">{{$product['qty']}}*<span>@if($product['item']['promotion_price']==0){{number_format($product['item']['unit_price'])}} @else {{number_format($product['item']['promotion_price'])}}@endif</span></span>
+                                                <span class="cart-item-amount">{{$product['qty']}}*<span>{{number_format($product['item']['promotion_price'])}}</span></span>
                                             </div>
                                         </div>
                                     </div>

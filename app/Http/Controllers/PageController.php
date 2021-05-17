@@ -6,7 +6,7 @@ use App\Cart;
 use App\Product;
 use App\ProductType;
 use App\Slide;
-use Illuminate\Contracts\Session\Session;
+use Session;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
