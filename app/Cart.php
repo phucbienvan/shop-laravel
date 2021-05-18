@@ -18,7 +18,13 @@ class Cart
 
     //  them san pham
     public function add($item, $id){
-        $giohang = ['qty'=>0, 'promotion_price' => $item->promotion_price, 'item' => $item];
+        $giohang = array(
+            'qty'             => 0,
+            'promotion_price' => $item->promotion_price,
+            'item'            => $item
+
+        );
+
         if($this->items){
             if(array_key_exists($id, $this->items)){
                 $giohang = $this->items[$id];
