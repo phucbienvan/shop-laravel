@@ -24,7 +24,6 @@ class Cart
             'item'            => $item
 
         );
-
         if($this->items){
             if(array_key_exists($id, $this->items)){
                 $giohang = $this->items[$id];
@@ -48,6 +47,7 @@ class Cart
             unset($this->items[$id]);
         }
     }
+
     //xóa nhiều
     public function removeItem($id){
         $this->totalQty -= $this->items[$id]['qty'];
