@@ -19,9 +19,7 @@
                 <thead>
                 <tr align="center">
                     <th>ID</th>
-                    <th>Name</th>
                     <th>image</th>
-                    <th>Description</th>
                     <th>Link</th>
                     <th>Delete</th>
                     <th>Edit</th>
@@ -31,11 +29,9 @@
                 @foreach($slide as $item)
                 <tr class="odd gradeX" align="center">
                     <td>{{$item->id}}</td>
-                    <td>{{$item->name}}</td>
                     <td>
-                        <img width="200px" src="uploads/slides/{{$item->image}}">
+                        <img width="200px" src="source/image/slide/{{$item->image}}">
                     </td>
-                    <td>{{$item->desc}}</td>
                     <td>{{$item->link}}</td>
                     <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{route('slide.delete', $item->id)}}"> Delete</a></td>
                     <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('slide.edit', $item->id)}}">Edit</a></td>

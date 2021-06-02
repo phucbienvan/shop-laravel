@@ -45,7 +45,7 @@
                             {{session('message')}}
                     @endif
 <div>
-                        <form role="form" action="admin/login" method="post">
+                        <form role="form" action="" method="post">
                             @csrf
                             <fieldset>
                                 <div class="form-group">

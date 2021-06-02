@@ -54,8 +54,12 @@ Route::get('/add-to-cart/{id}', [
 
 //  ADMIN
 //  Admin
-Route::group(['prefix'=>'admin'], function (){
+Route::get('/admin/login', 'AdminController@getLoginAdmin')->name('admin.login');
+Route::post('/admin/login', 'AdminController@postLoginAdmin')->name('admin.login');
+Route::get('/admin/logout', 'AdminController@getLogoutAdmin')->name('admin.logout');
 
+
+Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function (){
     Route::get('/', 'AdminController@index');
     // Danh muc
     Route::group(['prefix'=>'category'], function(){
@@ -80,12 +84,6 @@ Route::group(['prefix'=>'admin'], function (){
 
     });
 
-    //  comment
-    Route::group(['prefix'=>'comment'], function(){
-//        Route::get('list', 'CommentController@getList');
-        Route::get('delete/{id}/{news_id}', 'CommentController@getDelete')->name('comment.delete');
-
-    });
 
     // Slide
     Route::group(['prefix'=>'slide'], function(){

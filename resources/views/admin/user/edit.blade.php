@@ -30,34 +30,8 @@
                         <input class="form-control" name="name" value="{{$user->name}}" placeholder="Please Enter Name" />
                     </div>
                     <div class="form-group">
-                        <label> Image</label><br>
-                        <img width="500px" src="uploads/users/{{$user->image}}"><br>
-                        <input type="file" class="form-control" name="image" placeholder="Please Enter image" />
-                    </div>
-                    <div class="form-group">
                         <label>Email</label>
                         <input type="email" class="form-control" value="{{$user->email}}" name="email" placeholder="Please Enter " />
-                    </div>
-                    <div class="form-group">
-                        <label>Password</label>
-                        <input type="text" class="form-control" name="password" value="{{$user->password}}" placeholder="Please Enter " />
-                    </div>
-                    <div class="form-group">
-                        <label>User Level</label><br>
-                        <label class="radio-inline">
-                            <input name="level" value="1"
-                                   @if($user->level == 1)
-                                   {{"checked"}}
-                                   @endif
-                                   type="radio">Admin
-                        </label>
-                        <label class="radio-inline">
-                            <input name="level" value="0"
-                                   @if($user->level == 0)
-                                   {{"checked"}}
-                                   @endif
-                                   type="radio">Customer
-                        </label>
                     </div>
 
                     <button type="submit" class="btn btn-default">User Edit</button>

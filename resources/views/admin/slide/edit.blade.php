@@ -24,25 +24,15 @@
                 @endif
                 <form action="{{route('slide.edit', $slide->id)}}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
-
-                    <div class="form-group">
-                        <label> Name</label>
-                        <input class="form-control" value="{{$slide->name}}" name="name" placeholder="Please Enter Name" />
-                    </div>
                     <div class="form-group">
                         <label> Image</label><br>
-                        <img width="500px" src="uploads/slides/{{$slide->image}}"><br>
+                        <img width="500px" src="source/image/slide/{{$slide->image}}"><br>
                         <input type="file" class="form-control" name="image" placeholder="Please Enter image" />
-                    </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        <input class="form-control" value="{{$slide->desc}}" name="desc" placeholder="Please Enter " />
                     </div>
                     <div class="form-group">
                         <label>Link</label>
                         <input class="form-control" value="{{$slide->link}}" name="link" placeholder="Please Enter " />
                     </div>
-
                     <button type="submit" class="btn btn-default">Slide Edit</button>
                     <button type="reset" class="btn btn-default">Reset</button>
                 </form>

@@ -13,7 +13,7 @@
                 <!-- /input-group -->
             </li>
             <li>
-                <a href=""><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                <a href="{{route('category.list')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Category<span class="fa arrow"></span></a>
@@ -43,10 +43,10 @@
                 <a href="#"><i class="fa fa-cube fa-fw"></i>Slide<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List Slide</a>
+                        <a href="{{route('slide.list')}}">List Slide</a>
                     </li>
                     <li>
-                        <a href="#">Add Slide</a>
+                        <a href="{{route('slide.add')}}">Add Slide</a>
                     </li>
                 </ul>
             </li>
@@ -54,10 +54,10 @@
                 <a href="#"><i class="fa fa-users fa-fw"></i> User<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="#">List User</a>
+                        <a href="{{route('user.list')}}">List User</a>
                     </li>
                     <li>
-                        <a href="#">Add User</a>
+                        <a href="{{route('user.add')}}">Add User</a>
                     </li>
                 </ul>
                 <!-- /.nav-second-level -->

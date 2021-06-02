@@ -32,10 +32,6 @@
                         <input class="form-control" name="name" placeholder="Please Enter Name" />
                     </div>
                     <div class="form-group">
-                        <label> Image</label>
-                        <input type="file" class="form-control" name="image" placeholder="Please Enter image" />
-                    </div>
-                    <div class="form-group">
                         <label>Email</label>
                         <input type="email" class="form-control" name="email" placeholder="Please Enter " />
                     </div>
@@ -43,16 +39,6 @@
                         <label>Password</label>
                         <input type="password" class="form-control" name="password" placeholder="Please Enter " />
                     </div>
-                    <div class="form-group">
-                        <label>User Level</label><br>
-                        <label class="radio-inline">
-                            <input name="level" value="1" checked="" type="radio">Admin
-                        </label>
-                        <label class="radio-inline">
-                            <input name="level" value="2" type="radio">Customer
-                        </label>
-                    </div>
-
                     <button type="submit" class="btn btn-default">User Add</button>
                     <button type="reset" class="btn btn-default">Reset</button>
                 </form>

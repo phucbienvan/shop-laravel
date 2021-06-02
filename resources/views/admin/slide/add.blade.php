@@ -28,22 +28,13 @@
                     {{csrf_field()}}
 
                     <div class="form-group">
-                        <label> Name</label>
-                        <input class="form-control" name="name" placeholder="Please Enter Name" />
-                    </div>
-                    <div class="form-group">
                         <label> Image</label>
                         <input type="file" class="form-control" name="image" placeholder="Please Enter image" />
-                    </div>
-                    <div class="form-group">
-                        <label>Description</label>
-                        <input class="form-control" name="desc" placeholder="Please Enter " />
                     </div>
                     <div class="form-group">
                         <label>Link</label>
                         <input class="form-control" name="link" placeholder="Please Enter " />
                     </div>
-
                     <button type="submit" class="btn btn-default">Slide Add</button>
                     <button type="reset" class="btn btn-default">Reset</button>
                     </form>

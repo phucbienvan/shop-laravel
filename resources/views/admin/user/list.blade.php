@@ -20,9 +20,7 @@
                 <tr align="center">
                     <th>ID</th>
                     <th>Name</th>
-                    <th>image</th>
                     <th>Email</th>
-                    <th>Level</th>
                     <th>Delete</th>
                     <th>Edit</th>
                 </tr>
@@ -32,17 +30,7 @@
                 <tr class="odd gradeX" align="center">
                     <td>{{$item->id}}</td>
                     <td>{{$item->name}}</td>
-                    <td>
-                        <img width="200px" src="uploads/users/{{$item->image}}">
-                    </td>
                     <td>{{$item->email}}</td>
-                    <td>
-                        @if($item->level == 1)
-                            {{"Admin"}}
-                        @else
-                            {{"Customer"}}
-                        @endif
-                    </td>
                     <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="{{route('user.delete', $item->id)}}"> Delete</a></td>
                     <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('user.edit', $item->id)}}">Edit</a></td>
                 </tr>

@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="admin/category/list">Admin</a>
+        <a class="navbar-brand" href="{{route('category.list')}}">Admin</a>
     </div>
     <!-- /.navbar-header -->
 
@@ -24,7 +24,7 @@
                 <li><a href="admin/user/edit/{{Auth::user()->id}}"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="admin/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                <li><a href="{{route('admin.logout')}}"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
                 @endif
             </ul>
