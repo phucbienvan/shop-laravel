@@ -33,10 +33,8 @@
                                         <span class="flash-del">{{number_format($product['unit_price'])}} vnđ</span>
                                         <span class="flash-sale">{{number_format($product['promotion_price'])}} vnđ</span>
                                     @endif
-
                                 </p>
                             </div>
-
                             <div class="clearfix"></div>
                             <div class="space20">&nbsp;</div>
 

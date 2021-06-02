@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Cart;
-use App\Product;
-use App\ProductType;
-use App\Slide;
+use App\Models\Cart;
+use App\Models\Product;
+use App\Models\ProductType;
+use App\Models\Slide;
 use Session;
 use Illuminate\Http\Request;
 
