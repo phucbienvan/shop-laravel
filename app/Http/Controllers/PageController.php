@@ -12,12 +12,24 @@ use Illuminate\Http\Request;
 class PageController extends Controller
 {
 
+    public function __construct()
+    {
+        $category = ProductType::all();
+        view()->composer(['header'],function($view){
+            if(Session('cart')){
+                $oldCart = Session::get('cart');
+                $cart = new Cart($oldCart);
+                $view->with(['cart'=>Session::get('cart'), 'product_cart'=>$cart->items,'totalPrice'=>$cart->totalPrice,
+                    'totalQty'=>$cart->totalQty]);
+            }
+        });
+        view()->share('category',$category);
+    }
+
     // trang chu
     public function getIndex(){
         // in ra slide
         $slide = Slide::all();
-//        var_dump($slide);
-//        die();
         //san pham moi
         $new_product = Product::where('new', 1)->paginate(4); //paginate dung de phan trang
         $product = Product::where('id', '>', 0)->paginate(12,['*'],'pag');
@@ -53,10 +65,14 @@ class PageController extends Controller
     //  them san pham vao gio hang
     public function getAddToCart(Request $req,$id){
         $product = Product::find($id);
-        $oldCart = Session('cart')?Session::get('cart'):null;
-        $cart = new Cart($oldCart);
-        $cart->add($product, $id);
-        $req->session()->put('cart',$cart);
-        return redirect()->back();
+        if ($product != null){
+            $oldCart = Session('cart') ? Session('cart'):null;
+            $cart = new Cart($oldCart);
+            $cart ->add($product, $id);
+            $req->session()->put('cart',$cart);
+            return redirect()->back();
+
+        }
+
     }
 }
