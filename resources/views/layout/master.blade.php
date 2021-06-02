@@ -18,13 +18,13 @@
 </head>
 <body>
 
-@include('header')
+@include('layout.header')
 
 <div class="rev-slider">
     @yield('content')
 </div> <!-- .container -->
 
-@include('footer')
+@include('layout.footer')
 
 <!-- include js files -->
 <script src="source/assets/dest/js/jquery.js"></script>
