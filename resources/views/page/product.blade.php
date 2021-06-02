@@ -80,7 +80,7 @@
                         <h4>Related Products</h4>
 
                         <div class="row">
-                                @foreach($product_similar as $item)
+                                @foreach($product_other as $item)
                                     <div class="col-sm-4">
                                         <div class="single-item">
                                             @if($item['promotion_price'] != $item['unit-price'])
@@ -101,8 +101,8 @@
                                                 </p>
                                             </div>
                                             <div class="single-item-caption">
-                                                <a class="add-to-cart pull-left" href="product.html"><i class="fa fa-shopping-cart"></i></a>
-                                                <a class="beta-btn primary" href="product.html">Details <i class="fa fa-chevron-right"></i></a>
+                                                <a class="add-to-cart pull-left" href="{{route('add-to-cart', $item->id)}}"><i class="fa fa-shopping-cart"></i></a>
+                                                <a class="beta-btn primary" href="{{route('product', $item->id)}}">Details <i class="fa fa-chevron-right"></i></a>
                                                 <div class="clearfix"></div>
                                             </div>
                                         </div>
@@ -114,72 +114,18 @@
                     </div>
                     <div class="col-sm-3 aside">
                         <div class="widget">
-                            <h3 class="widget-title">Best Sellers</h3>
+                            <h3 class="widget-title">Similar Product</h3>
                             <div class="widget-body">
                                 <div class="beta-sales beta-lists">
+                                    @foreach($product_similar as $item)
                                     <div class="media beta-sales-item">
-                                        <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/1.png" alt=""></a>
+                                        <a class="pull-left" href="{{route('product', $item->id)}}"><img src="source/image/product/{{$item['image']}}" alt=""></a>
                                         <div class="media-body">
-                                            Sample Woman Top
-                                            <span class="beta-sales-price">$34.55</span>
+                                            <p>{{$item->name}}</p>
+                                            <span class="beta-sales-price">{{number_format($item->promotion_price)}} vnd</span>
                                         </div>
                                     </div>
-                                    <div class="media beta-sales-item">
-                                        <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/2.png" alt=""></a>
-                                        <div class="media-body">
-                                            Sample Woman Top
-                                            <span class="beta-sales-price">$34.55</span>
-                                        </div>
-                                    </div>
-                                    <div class="media beta-sales-item">
-                                        <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/3.png" alt=""></a>
-                                        <div class="media-body">
-                                            Sample Woman Top
-                                            <span class="beta-sales-price">$34.55</span>
-                                        </div>
-                                    </div>
-                                    <div class="media beta-sales-item">
-                                        <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/4.png" alt=""></a>
-                                        <div class="media-body">
-                                            Sample Woman Top
-                                            <span class="beta-sales-price">$34.55</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- best sellers widget -->
-                        <div class="widget">
-                            <h3 class="widget-title">New Products</h3>
-                            <div class="widget-body">
-                                <div class="beta-sales beta-lists">
-                                    <div class="media beta-sales-item">
-                                        <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/1.png" alt=""></a>
-                                        <div class="media-body">
-                                            Sample Woman Top
-                                            <span class="beta-sales-price">$34.55</span>
-                                        </div>
-                                    </div>
-                                    <div class="media beta-sales-item">
-                                        <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/2.png" alt=""></a>
-                                        <div class="media-body">
-                                            Sample Woman Top
-                                            <span class="beta-sales-price">$34.55</span>
-                                        </div>
-                                    </div>
-                                    <div class="media beta-sales-item">
-                                        <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/3.png" alt=""></a>
-                                        <div class="media-body">
-                                            Sample Woman Top
-                                            <span class="beta-sales-price">$34.55</span>
-                                        </div>
-                                    </div>
-                                    <div class="media beta-sales-item">
-                                        <a class="pull-left" href="product.html"><img src="source/assets/dest/images/products/sales/4.png" alt=""></a>
-                                        <div class="media-body">
-                                            Sample Woman Top
-                                            <span class="beta-sales-price">$34.55</span>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div> <!-- best sellers widget -->

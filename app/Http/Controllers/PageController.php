@@ -31,7 +31,7 @@ class PageController extends Controller
         // in ra slide
         $slide = Slide::all();
         //san pham moi
-        $new_product = Product::where('new', 1)->paginate(4); //paginate dung de phan trang
+        $new_product = Product::where('new', 1)->paginate(4); //paginate dung de phan trang, san pham moi
         $product = Product::where('id', '>', 0)->paginate(12,['*'],'pag');
         return view('page.home', compact('slide', 'new_product', 'product'));
     }
@@ -48,8 +48,11 @@ class PageController extends Controller
     // chi tiet san phẩm
     public function getProduct($id){
         $product = Product::where('id', $id)->first();
-        $product_similar= Product::where('id_type', $product['id_type'])->paginate(3);
-        return view('page.product', compact('product', 'product_similar'));
+        $product_similar= Product::where('id_type', $product['id_type'])->paginate(3); // san pham tuong tu
+        $product_other = Product::where('id_type', '<>', $product->id_type)->paginate(3); //san pham khác
+//        var_dump($product_other);
+//        die();
+        return view('page.product', compact('product', 'product_similar', 'product_other'));
     }
 
     //lien he
