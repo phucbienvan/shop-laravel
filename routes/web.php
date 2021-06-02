@@ -51,6 +51,22 @@ Route::get('/add-to-cart/{id}', [
     'as'=>'add-to-cart',
     'uses'=>'PageController@getAddToCart'
 ]);
+//  xoa san pham khoi gio hang
+Route::get('/delete-cart/{id}', [
+    'as'=>'delete-cart',
+    'uses'=>'PageController@getDeleteCart'
+]);
+
+Route::get('/checkout', [
+    'as'=>'checkout',
+    'uses'=>'PageController@getCheckout'
+]);
+Route::post('/checkout', [
+    'as'=>'checkout',
+    'uses'=>'PageController@postCheckout'
+]);
+
+
 
 //  ADMIN
 //  Admin

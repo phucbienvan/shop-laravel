@@ -26,7 +26,6 @@
                 @endif
                 <form action="{{route('slide.add')}}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
-
                     <div class="form-group">
                         <label> Image</label>
                         <input type="file" class="form-control" name="image" placeholder="Please Enter image" />

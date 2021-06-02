@@ -39,7 +39,7 @@
                             @if(Session::has('cart'))
                                 @foreach($product_cart as $product)
                                     <div class="cart-item">
-                                        <a class="cart-item-delete" href=""><i class="fa fa-times"></i></a>
+                                        <a class="cart-item-delete" href="{{route('delete-cart',$product['item']['id'] )}}"><i class="fa fa-times"></i></a>
                                         <div class="media">
                                             <a class="pull-left" href="#"><img src="source/image/product/{{$product['item']['image']}}" alt=""></a>
                                             <div class="media-body">
@@ -83,6 +83,8 @@
                     </li>
                     <li><a href="{{route('about')}}">Giới thiệu</a></li>
                     <li><a href="{{route('contact')}}">Liên hệ</a></li>
+                    <li><a href="{{route('checkout')}}">Giỏ hàng</a></li>
+
                 </ul>
                 <div class="clearfix"></div>
             </nav>
