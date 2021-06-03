@@ -17,8 +17,20 @@
 
 <div class="container">
     <div id="content">
-
-        <form action="{{route('login_customer')}}" method="post" class="beta-form-checkout">
+        @if(count($errors) >0)
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $item)
+                    {{$item}}<br>
+                @endforeach
+            </div>
+        @endif
+        @if(session('message'))
+            <div class="alert alert-success">
+                {{session('message')}}
+            </div>
+        @endif
+        <form action="{{route('login.customer')}}" method="post" class="beta-form-checkout">
+            {{csrf_field()}}
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-6">

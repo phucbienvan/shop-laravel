@@ -9,6 +9,8 @@ use App\Models\Customer;
 use App\Models\Product;
 use App\Models\ProductType;
 use App\Models\Slide;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Session;
 use Illuminate\Http\Request;
 
@@ -124,13 +126,67 @@ class PageController extends Controller
         return redirect()->back()->with('message', 'Đặt hàng thành công');
     }
 
+
+
+    // Dang ki khach hang
+    public function getRegisterCustomer(){
+        return view('page.register_customer');
+    }
+    public function postRegisterCustomer(Request $request){
+        $this->validate($request,
+            [
+                'name'=>'required|unique:users,name',
+                'email'=>'required',
+                'phone'=>'required',
+                'address'=>'required',
+                'password'=>'required'
+            ],
+            [
+                'name.required' => 'Bạn chưa nhập ten',
+                'name.unique' => 'Ten đề đã tồn tại',
+                'email.required' => 'Bạn chưa nhập email',
+                'phone.required' => 'Bạn chưa nhập phone',
+                'address.required' => 'Bạn chưa nhập address',
+                'password.required' => 'Bạn chưa nhập mat khau '
+            ]);
+        $user = new User();
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->level =0;
+        $user->save();
+        return redirect()->route('login.customer')->with('message', 'Thêm thành công');
+    }
+
     // Dang nhap khach hang
     public function getLoginCustomer(){
         return view('page.login');
     }
+    public function postLoginCustomer(Request $request){
+        $this->validate($request,
+            [
+                'email' => 'required',
+                'password' => 'required'
+            ],
+            [
+                'email.required' => 'Bạn chưa nhập email ',
+                'password.required' => 'Bạn chưa nhập mat khau'
+            ]);
 
-    // Dang ki khach hang
-    public function getRegisterCustomer(){
-        return view('page.register');
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            // Authentication passed...
+            return redirect()->route('home');
+        }
+        else
+            return redirect()->back()->with('message','Đăng Nhập không thành công!');
+    }
+
+    //  Dang xuat nguoi dung
+    public function getLogoutCustomer(){
+        Auth::logout();
+        return redirect('/');
     }
 }

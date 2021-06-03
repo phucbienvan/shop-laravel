@@ -68,15 +68,28 @@ Route::post('/checkout', [
 
 // Dang nhap
 Route::get('/login', [
-    'as'=>'login_customer',
+    'as'=>'login.customer',
     'uses'=>'PageController@getLoginCustomer'
+]);
+Route::post('/login', [
+    'as'=>'login.customer',
+    'uses'=>'PageController@postLoginCustomer'
 ]);
 
 // Dang ki
 Route::get('/register', [
-    'as'=>'register_customer',
+    'as'=>'register.customer',
     'uses'=>'PageController@getRegisterCustomer'
 ]);
+Route::post('/register', [
+    'as'=>'register.customer',
+    'uses'=>'PageController@postRegisterCustomer'
+]);
+Route::get('/logout', [
+    'as'=>'logout.customer',
+    'uses'=>'PageController@getLogoutCustomer'
+]);
+
 
 //  ADMIN
 //  Admin

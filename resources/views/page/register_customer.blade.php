@@ -17,15 +17,25 @@
 
 <div class="container">
     <div id="content">
-
-        <form action="{{route('register_customer')}}" method="post" class="beta-form-checkout">
+        @if(count($errors) >0)
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $item)
+                    {{$item}}<br>
+                @endforeach
+            </div>
+        @endif
+        @if(session('message'))
+            <div class="alert alert-success">
+                {{session('message')}}
+            </div>
+        @endif
+        <form action="{{route('register.customer')}}" method="post" class="beta-form-checkout">
+            {{csrf_field()}}
             <div class="row">
                 <div class="col-sm-3"></div>
                 <div class="col-sm-6">
                     <h4>Đăng kí</h4>
                     <div class="space20">&nbsp;</div>
-
-
                     <div class="form-block">
                         <label for="email">Email address*</label>
                         <input type="email" name="email" id="email" required>
@@ -44,7 +54,7 @@
 
                     <div class="form-block">
                         <label for="phone">Phone*</label>
-                        <input type="text" name="phone_number" id="phone" required>
+                        <input type="text" name="phone" id="phone" required>
                     </div>
                     <div class="form-block">
                         <label for="phone">Password*</label>
