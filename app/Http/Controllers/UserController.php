@@ -19,18 +19,26 @@ class UserController extends Controller
             [
                 'name'=>'required|unique:users,name',
                 'email'=>'required',
+                'phone'=>'required',
+                'address'=>'required',
                 'password'=>'required'
             ],
             [
-                'name.required' => 'Bạn chưa nhập tiêu đề',
-                'name.unique' => 'Tiêu đề đã tồn tại',
+                'name.required' => 'Bạn chưa nhập ten',
+                'name.unique' => 'Ten đề đã tồn tại',
                 'email.required' => 'Bạn chưa nhập email',
+                'phone.required' => 'Bạn chưa nhập phone',
+                'address.required' => 'Bạn chưa nhập address',
                 'password.required' => 'Bạn chưa nhập mat khau '
             ]);
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
+        $user->phone = $request->phone;
+        $user->address = $request->address;
+        $user->level = $request->level;
+
         $user->save();
         return redirect()->route('user.list')->with('message', 'Thêm thành công');
     }

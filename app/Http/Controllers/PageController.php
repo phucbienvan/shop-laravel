@@ -90,7 +90,6 @@ class PageController extends Controller
     }
 
     //  checkout
-
     public function getCheckout(){
         return view('page.checkout');
     }
@@ -123,12 +122,15 @@ class PageController extends Controller
         }
         Session::forget('cart');
         return redirect()->back()->with('message', 'Đặt hàng thành công');
+    }
 
+    // Dang nhap khach hang
+    public function getLoginCustomer(){
+        return view('page.login');
+    }
 
-
-
-
-
-
+    // Dang ki khach hang
+    public function getRegisterCustomer(){
+        return view('page.register');
     }
 }

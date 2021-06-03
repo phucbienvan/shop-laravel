@@ -39,6 +39,24 @@
                         <label>Password</label>
                         <input type="password" class="form-control" name="password" placeholder="Please Enter " />
                     </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="text" class="form-control" name="phone" placeholder="Please Enter " />
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <input type="text" class="form-control" name="address" placeholder="Please Enter " />
+                    </div>
+                    <div class="form-group">
+                        <label>User Level</label><br>
+                        <label class="radio-inline">
+                            <input name="level" value="1" checked="" type="radio">Admin
+                        </label>
+                        <label class="radio-inline">
+                            <input name="level" value="2" type="radio">Customer
+                        </label>
+                    </div>
+
                     <button type="submit" class="btn btn-default">User Add</button>
                     <button type="reset" class="btn btn-default">Reset</button>
                 </form>

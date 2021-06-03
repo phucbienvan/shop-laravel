@@ -56,7 +56,7 @@ Route::get('/delete-cart/{id}', [
     'as'=>'delete-cart',
     'uses'=>'PageController@getDeleteCart'
 ]);
-
+//  checkout
 Route::get('/checkout', [
     'as'=>'checkout',
     'uses'=>'PageController@getCheckout'
@@ -66,7 +66,17 @@ Route::post('/checkout', [
     'uses'=>'PageController@postCheckout'
 ]);
 
+// Dang nhap
+Route::get('/login', [
+    'as'=>'login_customer',
+    'uses'=>'PageController@getLoginCustomer'
+]);
 
+// Dang ki
+Route::get('/register', [
+    'as'=>'register_customer',
+    'uses'=>'PageController@getRegisterCustomer'
+]);
 
 //  ADMIN
 //  Admin
