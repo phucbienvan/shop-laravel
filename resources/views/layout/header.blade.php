@@ -12,7 +12,7 @@
                     @if(Auth::user() )
 
                         <li>
-                            <a href="customer"><span class ="glyphicon glyphicon-user"></span>
+                            <a href="{{route('checkout')}}"><span class ="glyphicon glyphicon-user"></span>
                                 {{Auth::user()->name}}</a>
                         </li>
                         <li>

@@ -18,38 +18,28 @@
             <h6 style="color: red">{{session('message')}}</h6>
         @endif
 
+        @if(Auth::user())
         <form action="{{route('checkout')}}" method="post" class="beta-form-checkout">
             {{csrf_field()}}
             <div class="row">
                 <div class="col-sm-6">
                     <h4>Đặt hàng</h4>
                     <div class="space20">&nbsp;</div>
-
                     <div class="form-block">
                         <label for="name">Họ tên*</label>
-                        <input type="text" id="name" name="name" placeholder="Họ tên" required>
+                        <input type="text" id="name" value=" {{Auth::user()->name}}" name="name" placeholder="Họ tên" required>
                     </div>
-                    <div class="form-block">
-                        <label>Giới tính </label>
-                        <input id="gender" type="radio" class="input-radio" name="gender" value="nam" checked="checked" style="width: 10%"><span style="margin-right: 10%">Nam</span>
-                        <input id="gender" type="radio" class="input-radio" name="gender" value="nữ" style="width: 10%"><span>Nữ</span>
-
-                    </div>
-
                     <div class="form-block">
                         <label for="email">Email*</label>
-                        <input type="email" id="email" name="email" required placeholder="">
+                        <input type="email" id="email" value=" {{Auth::user()->email}}" name="email" required placeholder="">
                     </div>
-
                     <div class="form-block">
                         <label for="address">Địa chỉ*</label>
-                        <input type="text" id="address" name="address" placeholder=" Address" required>
+                        <input type="text" id="address" value=" {{Auth::user()->address}}" name="address" placeholder=" Address" required>
                     </div>
-
-
                     <div class="form-block">
                         <label for="phone">Điện thoại*</label>
-                        <input type="text"name="phone_number" id="phone" required>
+                        <input type="text"name="phone_number" value=" {{Auth::user()->phone}}" id="phone" required>
                     </div>
 
                     <div class="form-block">
@@ -64,7 +54,6 @@
                             <div class="your-order-item">
                                 <div>
                                     <!--  one item	 -->
-
                                     @if(Session::has('cart'))
                                         @foreach($product_cart as $product)
                                     <div class="media">
@@ -99,7 +88,6 @@
                                         Cửa hàng sẽ gửi hàng đến địa chỉ của bạn, bạn xem hàng rồi thanh toán tiền cho nhân viên giao hàng
                                     </div>
                                 </li>
-
                                 <li class="payment_method_cheque">
                                     <input id="payment_method_cheque" type="radio" class="input-radio" name="payment_method" value="ATM" data-order_button_text="">
                                     <label for="payment_method_cheque">Chuyển khoản </label>
@@ -113,12 +101,12 @@
 
                             </ul>
                         </div>
-
                         <div class="text-center"><button type="submit" class="beta-btn primary" href="#">Đặt hàng<i class="fa fa-chevron-right"></i></button></div>
                     </div> <!-- .your-order -->
                 </div>
             </div>
         </form>
+            @endif
     </div> <!-- #content -->
 </div> <!-- .container -->
 @endsection

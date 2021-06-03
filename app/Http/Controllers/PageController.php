@@ -99,7 +99,6 @@ class PageController extends Controller
         $cart = Session::get('cart');
         $customer = new Customer();
         $customer->name = $request->name;
-        $customer->gender = $request->gender;
         $customer->email = $request->email;
         $customer->address = $request->address;
         $customer->phone_number = $request->phone_number;
