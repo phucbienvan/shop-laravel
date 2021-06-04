@@ -19,30 +19,30 @@
                 <thead>
                 <tr align="center">
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Address</th>
-                    <th>Level</th>
+                    <th>Name Customer</th>
+                    <th>Date order</th>
+                    <th>Total</th>
+                    <th>Payment</th>
+                    <th>Status</th>
                     <th>Edit</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($user as $item)
+                @foreach($bill as $item)
                 <tr class="odd gradeX" align="center">
                     <td>{{$item->id}}</td>
-                    <td>{{$item->name}}</td>
-                    <td>{{$item->email}}</td>
-                    <td>{{$item->phone}}</td>
-                    <td>{{$item->address}}</td>
+                    <td>{{$item->customer->name}}</td>
+                    <td>{{$item->created_at}}</td>
+                    <td>{{$item->total}}</td>
+                    <td>{{$item->payment}}</td>
                     <td>
-                        @if($item->level == 1)
-                            {{"Admin"}}
+                        @if($item->status == 0)
+                            {{"Đang giao"}}
                         @else
-                            {{"Customer"}}
+                            {{"Đã nhận"}}
                         @endif
                     </td>
-                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('user.edit', $item->id)}}">Edit</a></td>
+                    <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="{{route('cart.edit', $item->id)}}">Edit</a></td>
                 </tr>
                 @endforeach
                 </tbody>

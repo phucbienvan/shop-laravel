@@ -58,6 +58,4 @@ class UserController extends Controller
         $user->save();
         return redirect()->route('user.list')->with('message', 'Sửa user thành công');
     }
-
-
 }

@@ -91,12 +91,12 @@ Route::get('/logout', [
 ]);
 
 
+
 //  ADMIN
 //  Admin
 Route::get('/admin/login', 'AdminController@getLoginAdmin')->name('admin.login');
 Route::post('/admin/login', 'AdminController@postLoginAdmin')->name('admin.login');
 Route::get('/admin/logout', 'AdminController@getLogoutAdmin')->name('admin.logout');
-
 
 Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function (){
     Route::get('/', 'AdminController@index');
@@ -120,9 +120,7 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function (){
         Route::get('add', 'ProductController@getAdd')->name('product.add');
         Route::post('add', 'ProductController@postAdd')->name('product.add');
         Route::get('delete/{id}', 'ProductController@getDelete')->name('product.delete');
-
     });
-
 
     // Slide
     Route::group(['prefix'=>'slide'], function(){
@@ -132,21 +130,23 @@ Route::group(['prefix'=>'admin', 'middleware'=>'adminLogin'], function (){
         Route::get('add', 'SlideController@getAdd')->name('slide.add');
         Route::post('add', 'SlideController@postAdd')->name('slide.add');
         Route::get('delete/{id}', 'SlideController@getDelete')->name('slide.delete');
-
     });
 
     // User
     Route::group(['prefix'=>'user'], function(){
         Route::get('list', 'UserController@getList')->name('user.list');
-
         Route::get('edit/{id}', 'UserController@getEdit')->name('user.edit');
         Route::post('edit/{id}', 'UserController@postEdit')->name('user.edit');
-
         Route::get('add', 'UserController@getAdd')->name('user.add');
         Route::post('add', 'UserController@postAdd')->name('user.add');
-
         Route::get('delete/{id}', 'UserController@getDelete')->name('user.delete');
+    });
 
-
+    //  Cart
+    Route::group(['prefix'=>'cart'], function(){
+        Route::get('list', 'CartController@getList')->name('cart.list');
+        Route::get('edit/{id}', 'CartController@getEdit')->name('cart.edit');
+        Route::post('edit/{id}', 'CartController@postEdit')->name('cart.edit');
+        Route::get('delete/{id}', 'CartController@getDelete')->name('cart.delete');
     });
 });

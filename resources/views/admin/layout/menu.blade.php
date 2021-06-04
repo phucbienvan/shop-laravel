@@ -60,6 +60,12 @@
                         <a href="{{route('user.add')}}">Add User</a>
                     </li>
                 </ul>
+                <a href="#"><i class="fa fa-users fa-fw"></i> Cart<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="{{route('cart.list')}}">List Cart</a>
+                    </li>
+                </ul>
                 <!-- /.nav-second-level -->
             </li>
         </ul>

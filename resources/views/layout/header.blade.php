@@ -17,10 +17,8 @@
                         </li>
                         <li>
                             <a href="{{route('logout.customer')}}">Đăng xuất</a>
-
                         </li>
                     @else
-
                         <li>
                             <a href="{{route('register.customer')}}">Đăng ký</a>
                         </li>

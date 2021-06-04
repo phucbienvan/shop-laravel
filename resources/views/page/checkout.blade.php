@@ -101,12 +101,15 @@
 
                             </ul>
                         </div>
-                        <div class="text-center"><button type="submit" class="beta-btn primary" href="#">Đặt hàng<i class="fa fa-chevron-right"></i></button></div>
+                        @if(Session::has('cart') && $totalPrice != 0)
+                        <div class="text-center"><button type="submit" class="beta-btn primary">Đặt hàng<i class="fa fa-chevron-right"></i></button></div>
+                        @endif
                     </div> <!-- .your-order -->
                 </div>
             </div>
         </form>
             @endif
+            <div class="text-center"><a href="{{route('login.customer')}}" class="beta-btn primary">Đăng nhập</a></div>
     </div> <!-- #content -->
 </div> <!-- .container -->
 @endsection
