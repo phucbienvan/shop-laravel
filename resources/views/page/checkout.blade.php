@@ -108,8 +108,9 @@
                 </div>
             </div>
         </form>
-            @endif
+            @else
             <div class="text-center"><a href="{{route('login.customer')}}" class="beta-btn primary">Đăng nhập</a></div>
+            @endif
     </div> <!-- #content -->
 </div> <!-- .container -->
 @endsection
